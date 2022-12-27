@@ -5,6 +5,7 @@ const { pool } = require('./utils/db')
 
 // Routers
 const AuthRouter = require('./routes/api/auth')
+const ConfigRouter = require('./routes/api/configs')
 
 // Get Port
 function getPort(){
@@ -37,7 +38,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 //Initialize the routers
 app.use('/api/auth', AuthRouter)
-
+app.use('/api/config', ConfigRouter)
 
 
 app.get('/', (req, res) => {
