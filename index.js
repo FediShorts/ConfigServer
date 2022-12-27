@@ -15,6 +15,7 @@ function getPort(){
       conn.query("SELECT port FROM FediShorts.config WHERE service_name = 'ConfigServer'") // Fetch the config.
         .then((rows) => {
           const port = rows[0]["port"]
+          conn.end()
           app.listen(port, () => {
             console.log(`Config Server listening on ${port}`)
           })
